@@ -1,10 +1,6 @@
 from django.contrib import admin
 
-from hotelaria.models import Funcionario
-from hotelaria.models import tipoFuncionario
-from hotelaria.models import Servico
-from hotelaria.models import tipoQuarto
-from hotelaria.models import Quarto
+from hotelaria.models import Funcionario, tipoFuncionario, Servico, tipoQuarto, Quarto
 
 admin.site.register(tipoFuncionario)
 admin.site.register(Funcionario)
