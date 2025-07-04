@@ -19,12 +19,12 @@ class tipoFuncionarioSerializer(serializers.ModelSerializer):
 
 class funcionarioSerializer(serializers.ModelSerializer): 
     class Meta: 
-        model=funcionario
+        model=Funcionario
         fields="__all__"
 
 class servicoSerializer(serializers.ModelSerializer): 
     class Meta: 
-        model=servico
+        model=Servico
         fields="__all__"
 
 class tipoQuartoSerializer(serializers.ModelSerializer): 

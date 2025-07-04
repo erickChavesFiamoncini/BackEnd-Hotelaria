@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from rest_framework import viewsets
 
 from hotelaria.models import Funcionario, tipoFuncionario, Servico, tipoQuarto, Quarto
