@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from hotelaria.models import Funcionario, tipoFuncionario, Servico, tipoQuarto, Quarto
+from hotelaria.models import Funcionario, tipoFuncionario, Servico, tipoQuarto, Quarto, reserva, pagamento, Hospede
 
 class quartoSerializer(serializers.ModelSerializer): 
     class Meta: 
@@ -32,5 +32,17 @@ class tipoQuartoSerializer(serializers.ModelSerializer):
         model=tipoQuarto
         fields="__all__"
 
+class reservaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = reserva
+        fields = "__all__"
 
+class pagamentoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = pagamento
+        fields = "__all__"
 
+class hospedeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Hospede
+        fields = "__all__"

@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 
-from hotelaria.models import Funcionario, tipoFuncionario, Servico, tipoQuarto, Quarto
+from hotelaria.models import Funcionario, tipoFuncionario, Servico, tipoQuarto, Quarto, reserva, pagamento, Hospede
 
-from hotelaria.serializers import quartoSerializer, tipoQuartoSerializer, funcionarioSerializer, tipoFuncionarioSerializer, servicoSerializer 
+from hotelaria.serializers import quartoSerializer, tipoQuartoSerializer, funcionarioSerializer, tipoFuncionarioSerializer, servicoSerializer, reservaSerializer, pagamentoSerializer, hospedeSerializer
 
 class QuartoViewSet(viewsets.ModelViewSet): 
     queryset=Quarto.objects.all()
@@ -24,3 +24,15 @@ class tipoFuncionarioViewSet(viewsets.ModelViewSet):
 class ServicoViewSet(viewsets.ModelViewSet): 
     queryset=Servico.objects.all()
     serializer_class=servicoSerializer
+
+class reservaViewSet(viewsets.ModelViewSet):
+    queryset=reserva.objects.all()
+    serializer_class=reservaSerializer
+
+class pagamentoViewSet(viewsets.ModelViewSet):
+    queryset=pagamento.objects.all()
+    serializer_class=pagamentoSerializer 
+
+class HospedeViewSet(viewsets.ModelViewSet):
+    queryset=Hospede.objects.all()
+    serializer_class=hospedeSerializer
