@@ -1,4 +1,5 @@
 from django.db import models
+
 # Create your models here.
 
 class Hospede(models.Model):
@@ -70,3 +71,4 @@ class Quarto(models.Model):
         return f'{self.numero}'
 
 
+# Create your models here.
