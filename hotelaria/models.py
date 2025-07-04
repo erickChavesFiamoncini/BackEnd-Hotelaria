@@ -8,11 +8,18 @@ class Hospede(models.Model):
 
     def __str__(self):
         return self.nome
+    
+class Servico(models.Model):
+    descricao = models.CharField(max_length=45)
+
+    def __str__(self):
+        return f'{self.descricao}'
 
 class reserva(models.Model):
     data = models.DateField(default= '')
     noites = models.IntegerField(default='')
     hospede = models.ForeignKey(Hospede, on_delete=models.PROTECT)
+    servico = models.ManyToManyField(Servico, related_name="serviços", blank=True)
 
     def __str__(self):
         return f'Reserva de {self.hospede.nome} - {self.data} - {self.noites} noites'
@@ -26,11 +33,6 @@ class pagamento(models.Model):
     def __str__(self):
         return f'{self.valor} - {self.forma} - {self.data}'
 
-class Servico(models.Model):
-    descricao = models.CharField(max_length=45)
-
-    def __str__(self):
-        return f'{self.descricao}'
 
 class tipoFuncionario(models.Model):
     descricao = models.CharField(max_length=45)
@@ -62,6 +64,7 @@ class Quarto(models.Model):
     valor = models.DecimalField(decimal_places=2, max_digits=6)
     descricao = models.CharField(max_length=90)
     tipo = models.ForeignKey(tipoQuarto, on_delete=models.PROTECT, related_name='quartos', null=True, blank=True)
+    reserva = models.ForeignKey(reserva, on_delete=models.PROTECT, related_name='reservas', null=True, blank=True)
 
     def __str__(self):
         return f'{self.numero}'
