@@ -2,7 +2,7 @@ from django.db import models
 # Create your models here.
 
 class Hospede(models.Model):
-    cpf = models.BigIntegerField(default=1)
+    cpf = models.BigIntegerField(default=0)
     email = models.EmailField(max_length=150)
     nome = models.CharField(max_length=100)
 
